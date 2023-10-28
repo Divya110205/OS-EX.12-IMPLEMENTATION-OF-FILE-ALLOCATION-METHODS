@@ -6,16 +6,23 @@ To implement file management using sequential list.
 ## ALGORITHM: 
  
 Step 1: Start the program. 
+
 Step 2: Get the number of memory partition and their sizes. 
+
 Step 3: Get the number of processes and values of block size for each process. 
-Step 4: First fit algorithm searches all the entire memory block until a hole which is big enough 
+
+Step 4: First fit algorithm searches all the entire memory block until a hole which is big enough
 is encountered. It allocates that memory block for the requesting process. 
+
 Step 5: Best-fit  algorithm searches the memory blocks for the smallest  hole which can be 
 allocated to requesting process and allocates it. 
+
 Step 6: Worst fit algorithm searches the memory blocks for the largest hole and allocates it to the 
 process. 
+
 Step 7: Analyses all the three memory management techniques and display the best algorithm 
 which utilizes the memory resources effectively and efficiently. 
+
 Step 8: Stop the program.
 
 ## PROGRAM:
@@ -75,16 +82,23 @@ Thus, file management using sequential list is implemented successfully.
 To implement file management using Indexed list. 
  
 ## DESCRIPTION: 
+
 ➢ Indexed allocation brings all the block pointers together into onelocation: called the 
 index block. 
+
 ➢ Each file has its own index block, which is an array of disk-block addresses. The 
+
 ith entry in the index block points to the ith block of thefile. 
-➢ The directory contains the address of the index block (Figure5.8). 
+
+➢ The directory contains the address of the index block 
+
 ➢ To read the ith block, we use the pointer in the ith index-block entry to find and read 
 the desiredblock. 
+
 ➢ When the file is created, all pointers in the index block are set to nil. When the ith 
 block is first written, a block is obtained from the free-space manager, and its address 
 is put in the ith index-blockentry. 
+
 ➢ Indexed allocation supports direct access, without suffering from external 
 fragmentation, because any free block on the disk may satisfy a request for more 
 space. 
@@ -113,7 +127,8 @@ x:printf("Enter the index block: ");
 scanf("%d",&ind); 
 if(f[ind]!=1) 
 { 
-printf("Enter no of blocks needed and no of files for the index %d on the disk : \n", ind); 
+printf("Enter no of blocks needed and no of files for the index
+ %d on the disk : \n", ind); 
 scanf("%d",&n); 
 } 
 else 
@@ -162,24 +177,31 @@ Thus, file management using Indexed list is implemented successfully.
 To implement file management using Linked list. 
 
 ## DESCRIPTION:
+
 ➢ Linked allocation solves all problems of contiguous allocation. With linked 
 allocation, each file is a linked list of disk blocks; the disk blocks may be scattered 
 anywhere on the disk. The directory contains a pointer to the first and last blocks of 
 the file. 
+
 ➢ Each block contains a pointer to the next block. These pointers are not made available 
 to the user. Thus, if each block is 512 bytes, and a disk address (the pointer) requires 
 4 bytes, then the user sees blocks of 508bytes. 
+
 ➢ To create a new file, we simply create a new entry in the directory. With linked 
 allocation, each directory entry has a pointer to the first disk block of thefile. 
+
 ➢ This pointer is initialized to nil (the end-of-list pointer value) to signify an empty 
 file. The size field is also set to 0. A write to the file causes a free block to be found 
 via the free-space-management system, and this new block is then written to, and is 
 linked to the end of thefile. 
+
 ➢ To read a file, we simply read blocks by following the pointers from block to block. 
 There is no external fragmentation with linked allocation, and any free block on the 
 free-space list can be used to satisfy arequest. 
+
 ➢ The size of a file does not need to be declared when that file is created. A file can 
 continue to grow as long as free blocks areavailable. 
+
 ➢ Consequently, it is never necessary to compact diskspace. 
 
 ## PROGRAM:
